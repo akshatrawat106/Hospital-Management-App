@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 14%;
+
+    --primary: 173 58% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 18% 95%;
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 210 14% 93%;
+    --muted-foreground: 215 15% 47%;
+
+    --accent: 173 45% 93%;
+    --accent-foreground: 173 58% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 173 58% 39%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 215 25% 14%;
+    --sidebar-foreground: 210 14% 83%;
+    --sidebar-primary: 173 58% 49%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 20%;
+    --sidebar-accent-foreground: 210 14% 93%;
+    --sidebar-border: 215 20% 22%;
+    --sidebar-ring: 173 58% 49%;
+
+    --chart-1: 173 58% 39%;
+    --chart-2: 217 91% 60%;
+    --chart-3: 142 71% 45%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 72% 51%;
+  }
+
+  .dark {
+    --background: 215 25% 9%;
+    --foreground: 210 14% 93%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 14% 93%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 14% 93%;
+
+    --primary: 173 58% 49%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 210 14% 83%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 173 30% 18%;
+    --accent-foreground: 173 58% 65%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 173 58% 49%;
+
+    --sidebar-background: 215 28% 7%;
+    --sidebar-foreground: 210 14% 83%;
+    --sidebar-primary: 173 58% 49%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 14%;
+    --sidebar-accent-foreground: 210 14% 93%;
+    --sidebar-border: 215 20% 15%;
+    --sidebar-ring: 173 58% 49%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .stat-card {
+    @apply bg-card rounded-xl border border-border p-5 shadow-sm transition-shadow hover:shadow-md;
+  }
+
+  .page-header {
+    @apply mb-6;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight text-foreground;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-muted-foreground mt-1;
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table thead th {
+    @apply text-left text-xs font-medium uppercase tracking-wider text-muted-foreground py-3 px-4 border-b;
+  }
+
+  .data-table tbody td {
+    @apply py-3 px-4 border-b border-border/50;
+  }
+
+  .data-table tbody tr {
+    @apply transition-colors hover:bg-muted/40;
+  }
+
+  .badge-available {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-accent text-accent-foreground;
+  }
+
+  .badge-unavailable {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-destructive/10 text-destructive;
+  }
+
+  .badge-paid {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    background: hsl(var(--success) / 0.1);
+    color: hsl(var(--success));
+  }
+
+  .badge-unpaid {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    background: hsl(var(--warning) / 0.1);
+    color: hsl(var(--warning));
+  }
+}
